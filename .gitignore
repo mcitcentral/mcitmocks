@@ -1,17 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-src/main/client/.yarn/cache
-src/main/client/.yarn/unplugged
-src/main/client/.yarn/build-state.yml
-src/main/client/.yarn/install-state.gz
 src/main/client/node_modules
 src/main/client/.pnp
 .pnp.js
 
 # local configuration
-src/main/client/.yarnrc.yml
-src/main/client/.yarn/releases
+src/main/client/.yarn*
 
 # testing
 src/main/client/coverage
