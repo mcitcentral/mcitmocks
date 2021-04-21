@@ -21,7 +21,7 @@
 ``` js
 cd src/main/client
 yarn
-yarn dev
+yarn start
 ``` 
 
 - By default, this will start at `localhost:3000`
