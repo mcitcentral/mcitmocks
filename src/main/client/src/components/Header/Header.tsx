@@ -11,7 +11,7 @@ const Header: React.FC<{}> = () => {
     <header className="header">
       <div className="header__left">
         <span>_mcitmocks</span>
-          <button>LOGIN WITH GOOGLE</button>
+        <button>LOGIN WITH GOOGLE</button>
       </div>
     </header>
   );
