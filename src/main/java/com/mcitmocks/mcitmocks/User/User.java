@@ -1,19 +1,37 @@
 package com.mcitmocks.mcitmocks.User;
 
-import org.hibernate.annotations.GenericGenerator;
+import com.mcitmocks.mcitmocks.Availability.Availability;
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
-@Table(name="users")
+@Table(name="users",
+        uniqueConstraints = {
+                @UniqueConstraint(name="student_email_unique",columnNames = "email")
+        })
+
 public class User {
 
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+    @GeneratedValue
+    private UUID id;
 
+    @Column(
+            name = "email",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String email;
+
+    @Column(
+            name = "timeZone",
+            nullable = false,
+            columnDefinition = "TEXT"
+    )
     private String timeZone;
+
+    @OneToMany(mappedBy = "user", orphanRemoval = true)
+    private Set<Availability> availabilitySet = new HashSet<>();
 
     protected User() {}
 
@@ -26,7 +44,7 @@ public class User {
         this.timeZone = timeZone;
     }
 
-    public String getId() {
+    public UUID getId() {
         return id;
     }
 
