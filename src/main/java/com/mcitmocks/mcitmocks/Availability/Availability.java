@@ -1,6 +1,7 @@
 package com.mcitmocks.mcitmocks.Availability;
 
 import com.mcitmocks.mcitmocks.User.User;
+import org.hibernate.annotations.GenericGenerator;
 
 
 import javax.persistence.*;
@@ -11,7 +12,11 @@ import java.util.UUID;
 @Table(name="availability")
 public class Availability {
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(
+            name="UUID",
+            strategy="org.hibernate.id.UUIDGenerator"
+    )
     private UUID id;
 
 
