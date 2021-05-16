@@ -31,6 +31,7 @@ public class Availability {
     )
     private OffsetDateTime startTime;
 
+
     @Column(
             name="taken",
             nullable=false
@@ -46,6 +47,7 @@ public class Availability {
     }
 
 
+
     public UUID getId() {
         return id;
     }
@@ -57,4 +59,23 @@ public class Availability {
     public boolean isTaken() {
         return taken;
     }
+
+    public User getUser(){
+        return user;
+
+    }
+    public void setUser(User user){
+        this.user=user;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Availability)) return false;
+        return id != null && id.equals(((Availability)o).getId());
+    }
+    @Override
+    public int hashCode(){
+        return getClass().hashCode();
+    }
+
 }

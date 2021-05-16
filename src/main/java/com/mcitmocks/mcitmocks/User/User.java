@@ -52,6 +52,16 @@ public class User {
         this.timeZone = timeZone;
     }
 
+    public void addAvailability(Availability availability){
+        availabilitySet.add(availability);
+        availability.setUser(this);
+    }
+
+    public void removeAvailability(Availability availability){
+        availabilitySet.remove(availability);
+        availability.setUser(null);
+    }
+
     public String getId() {
         return id;
     }
