@@ -14,28 +14,27 @@ import java.util.*;
 public class User {
 
     @Id
-    @GeneratedValue(generator="UUID")
+    @GeneratedValue(generator="uuid2")
     @GenericGenerator(
-            name = "UUID",
+            name = "uuid2",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     @Column(
             name="id",
             nullable = false,
-            updatable = false)
+            updatable = false
+    )
     private String id;
 
     @Column(
             name = "email",
-            nullable = false,
-            columnDefinition = "TEXT"
+            nullable = false
     )
     private String email;
 
     @Column(
             name = "timeZone",
-            nullable = false,
-            columnDefinition = "TEXT"
+            nullable = false
     )
     private String timeZone;
 

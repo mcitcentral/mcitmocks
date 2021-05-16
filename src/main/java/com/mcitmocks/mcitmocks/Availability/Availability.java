@@ -12,10 +12,15 @@ import java.util.UUID;
 @Table(name="availability")
 public class Availability {
     @Id
-    @GeneratedValue(generator="UUID")
+    @GeneratedValue(generator="uuid2")
     @GenericGenerator(
-            name="UUID",
+            name="uuid2",
             strategy="org.hibernate.id.UUIDGenerator"
+    )
+    @Column(
+            name="id",
+            nullable = false,
+            updatable = false
     )
     private UUID id;
 
@@ -28,8 +33,7 @@ public class Availability {
 
     @Column(
             name="taken",
-            nullable=false,
-            columnDefinition = "BOOLEAN"
+            nullable=false
     )
     private boolean taken;
 
