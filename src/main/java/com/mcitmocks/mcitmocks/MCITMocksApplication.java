@@ -26,7 +26,7 @@ public class MCITMocksApplication {
     @Bean
     CommandLineRunner commandLineRunner(UserRepository userRepository) {
         return args -> {
-            User mario = new User("mario@seas.upenn.edu", "cst");
+            User mario = new User("mario@seas.upenn.edu", "America/Chicago");
             userRepository.save(mario);
         };
     }
