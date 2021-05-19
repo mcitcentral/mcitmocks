@@ -15,18 +15,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class MCITMocksApplication {
 
     @GetMapping(path = "/api/test")
-    String test () {
+    String test() {
         return "test string";
     }
 
     public static void main(String[] args) {
         SpringApplication.run(MCITMocksApplication.class, args);
     }
+
     @Bean
-    CommandLineRunner commandLineRunner(UserRepository userRepository){
+    CommandLineRunner commandLineRunner(UserRepository userRepository) {
         return args -> {
-            User mario= new User("mario@seas.upenn.edu","cst");
-            userRepository.save( mario);
+            User mario = new User("mario@seas.upenn.edu", "cst");
+            userRepository.save(mario);
         };
     }
 }

@@ -9,16 +9,16 @@ import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name="availability")
+@Table(name = "availability")
 public class Availability {
     @Id
-    @GeneratedValue(generator="uuid2")
+    @GeneratedValue(generator = "uuid2")
     @GenericGenerator(
-            name="uuid2",
-            strategy="org.hibernate.id.UUIDGenerator"
+            name = "uuid2",
+            strategy = "org.hibernate.id.UUIDGenerator"
     )
     @Column(
-            name="id",
+            name = "id",
             nullable = false,
             updatable = false
     )
@@ -26,15 +26,15 @@ public class Availability {
 
 
     @Column(
-            name="startTime",
-            nullable=false
+            name = "startTime",
+            nullable = false
     )
     private OffsetDateTime startTime;
 
 
     @Column(
-            name="taken",
-            nullable=false
+            name = "taken",
+            nullable = false
     )
     private boolean taken;
 
@@ -42,11 +42,9 @@ public class Availability {
     @JoinColumn(name = "userId_fk")
     private User user;
 
-    protected Availability(){
+    protected Availability() {
 
     }
-
-
 
     public UUID getId() {
         return id;
@@ -60,21 +58,24 @@ public class Availability {
         return taken;
     }
 
-    public User getUser(){
+    public User getUser() {
         return user;
 
     }
-    public void setUser(User user){
-        this.user=user;
+
+    public void setUser(User user) {
+        this.user = user;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Availability)) return false;
-        return id != null && id.equals(((Availability)o).getId());
+        return id != null && id.equals(((Availability) o).getId());
     }
+
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return getClass().hashCode();
     }
 

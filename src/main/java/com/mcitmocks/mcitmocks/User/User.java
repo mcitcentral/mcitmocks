@@ -7,20 +7,20 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name="users",
+@Table(name = "users",
         uniqueConstraints = {
-                @UniqueConstraint(name="student_email_unique",columnNames = "email")
+                @UniqueConstraint(name = "student_email_unique", columnNames = "email")
         })
 public class User {
 
     @Id
-    @GeneratedValue(generator="uuid2")
+    @GeneratedValue(generator = "uuid2")
     @GenericGenerator(
             name = "uuid2",
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     @Column(
-            name="id",
+            name = "id",
             nullable = false,
             updatable = false
     )
@@ -41,7 +41,8 @@ public class User {
     @OneToMany(mappedBy = "user", orphanRemoval = true)
     private Set<Availability> availabilitySet = new HashSet<>();
 
-    protected User() {}
+    protected User() {
+    }
 
     public User(String email) {
         this.email = email;
@@ -52,12 +53,12 @@ public class User {
         this.timeZone = timeZone;
     }
 
-    public void addAvailability(Availability availability){
+    public void addAvailability(Availability availability) {
         availabilitySet.add(availability);
         availability.setUser(this);
     }
 
-    public void removeAvailability(Availability availability){
+    public void removeAvailability(Availability availability) {
         availabilitySet.remove(availability);
         availability.setUser(null);
     }
