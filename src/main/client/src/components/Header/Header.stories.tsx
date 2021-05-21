@@ -3,14 +3,14 @@ import { Story } from "@storybook/react";
 
 export default {
   title: "Header",
-  component: Header,
+  component: Header
 };
 
 // @ts-ignore
-const Template: Story<HeaderProps> = (args) => <Header {...args} />;
+const Template: Story<HeaderProps> = args => <Header {...args} />;
 
 export const Default = Template.bind({});
 
 Default.args = {
-  user: null,
+  user: null
 };

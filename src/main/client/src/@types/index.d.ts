@@ -1,4 +1,4 @@
 export interface User {
-    email: string;
-    timeZone: string;
+  email: string;
+  timeZone: string;
 }
