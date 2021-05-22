@@ -38,12 +38,16 @@ public class Availability {
     )
     private boolean taken;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId_fk")
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "user_id")
     private User user;
 
-    protected Availability() {
+    public Availability() {
 
+    }
+    public Availability(OffsetDateTime startTimeParam, boolean takenParam){
+        this.startTime = startTimeParam;
+        this.taken = takenParam;
     }
 
     public UUID getId() {

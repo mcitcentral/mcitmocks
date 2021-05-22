@@ -38,8 +38,10 @@ public class User {
     )
     private String timeZone;
 
-    @OneToMany(mappedBy = "user", orphanRemoval = true)
+
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH}, orphanRemoval = true)
     private Set<Availability> availabilitySet = new HashSet<>();
+
 
     protected User() {
     }
@@ -74,4 +76,22 @@ public class User {
     public String getTimeZone() {
         return timeZone;
     }
+
+    public Set<Availability> getAvailabilitySet() {
+        return availabilitySet;
+    }
+
+    public void setAvailabilitySet(Set<Availability> availabilitySet) {
+        this.availabilitySet = availabilitySet;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", timeZone='" + timeZone + '\'' +
+                '}';
+    }
+
 }
