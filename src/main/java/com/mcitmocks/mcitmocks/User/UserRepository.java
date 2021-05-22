@@ -3,6 +3,7 @@ package com.mcitmocks.mcitmocks.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public interface UserRepository extends CrudRepository<User, String> {
 
@@ -10,3 +11,4 @@ public interface UserRepository extends CrudRepository<User, String> {
 
   Optional<User> findByEmail(String email);
 }
+
