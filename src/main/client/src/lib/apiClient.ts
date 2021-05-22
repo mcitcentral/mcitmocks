@@ -6,7 +6,7 @@ const apiClient = {
   getTestData: async () => {
     const { data } = await axios.get("/test");
     return data;
-  },
+  }
 };
 
 export default apiClient;
