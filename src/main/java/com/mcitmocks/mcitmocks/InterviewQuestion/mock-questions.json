@@ -1,0 +1,31 @@
+[
+  {
+    "questionName": "Two Sum",
+    "questionText": "Hello world",
+    "answerText": "Hello to you too",
+    "questionDifficulty": "EASY",
+    "questionTypes": [
+      "ARRAY"
+    ]
+  },
+  {
+    "questionName": "Reverse Linked List",
+    "questionText": "Hello world",
+    "answerText": "Hello to you too",
+    "questionDifficulty": "EASY",
+    "questionTypes": [
+      "LINKED_LIST",
+      "RECURSION"
+    ]
+  },
+  {
+    "questionName": "Binary Tree Inorder Traversal",
+    "questionText": "Hello world",
+    "answerText": "Hello to you too",
+    "questionDifficulty": "EASY",
+    "questionTypes": [
+      "TREE",
+      "RECURSION"
+    ]
+  }
+]

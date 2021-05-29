@@ -10,7 +10,7 @@ public class InterviewQuestionController {
     @Autowired
     private InterviewQuestionRepository interviewQuestionRepository;
 
-    @GetMapping(value="/api/questions/random", produces = "application/json")
+    @GetMapping(value = "/api/questions/random", produces = "application/json")
     public InterviewQuestion getRandom() {
         return interviewQuestionRepository.getRandom();
     }
