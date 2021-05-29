@@ -1,10 +1,14 @@
 package com.mcitmocks.mcitmocks.InterviewQuestion;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.util.HashSet;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 
 @Component
 public class InterviewQuestionLoader implements CommandLineRunner {
@@ -18,22 +22,17 @@ public class InterviewQuestionLoader implements CommandLineRunner {
         seedInterviewQuestions();
     }
 
-    private void seedInterviewQuestions() {
-        HashSet<QuestionType> questionTypes1 = new HashSet<>();
-        questionTypes1.add(QuestionType.ARRAY);
-        InterviewQuestion question1 = new InterviewQuestion("Two Sum", QuestionDifficulty.EASY, questionTypes1);
-        interviewQuestionRepository.save(question1);
+    private static List<InterviewQuestion> readJsonQuestions() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(new File("src/main/java/com/mcitmocks/mcitmocks/InterviewQuestion/mock-questions.json"), new TypeReference<List<InterviewQuestion>>() {
+        });
+    }
 
-        HashSet<QuestionType> questionTypes2 = new HashSet<>();
-        questionTypes2.add(QuestionType.LINKED_LIST);
-        questionTypes2.add(QuestionType.RECURSION);
-        InterviewQuestion question2 = new InterviewQuestion("Reverse Linked List", QuestionDifficulty.EASY, questionTypes2);
-        interviewQuestionRepository.save(question2);
+    private void seedInterviewQuestions() throws IOException {
+        readJsonQuestions().forEach(interviewQuestionRepository::save);
+    }
 
-        HashSet<QuestionType> questionTypes3 = new HashSet<>();
-        questionTypes3.add(QuestionType.TREE);
-        questionTypes3.add(QuestionType.RECURSION);
-        InterviewQuestion question3 = new InterviewQuestion("Binary Tree Inorder Traversal", QuestionDifficulty.EASY, questionTypes3);
-        interviewQuestionRepository.save(question3);
+    public static void main(String[] args) throws IOException {
+        readJsonQuestions().forEach(System.out::println);
     }
 }
