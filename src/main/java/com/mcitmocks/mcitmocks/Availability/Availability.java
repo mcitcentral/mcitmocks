@@ -29,7 +29,7 @@ public class Availability {
             name = "startTime",
             nullable = false
     )
-    private OffsetDateTime startTime;
+    private String startTime;
 
 
     @Column(
@@ -45,7 +45,7 @@ public class Availability {
     public Availability() {
 
     }
-    public Availability(OffsetDateTime startTimeParam, boolean takenParam){
+    public Availability(String startTimeParam, boolean takenParam){
         this.startTime = startTimeParam;
         this.taken = takenParam;
     }
@@ -54,7 +54,7 @@ public class Availability {
         return id;
     }
 
-    public OffsetDateTime getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
