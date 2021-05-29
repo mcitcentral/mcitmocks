@@ -1,0 +1,23 @@
+.normalButton {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 30px 10px 30px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    background: #3F83F8;
+    border-radius: 10px;
+    color: white;
+}
+
+.disabledButton {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 30px 10px 30px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    background: #F4F5F7;
+    border-radius: 10px;
+    color: #9FA6B2;
+}

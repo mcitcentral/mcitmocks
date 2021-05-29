@@ -2,7 +2,8 @@ import React from 'react';
 import './Day.css';
 import TimeBlock, {timeProps} from './TimeBlock';
 import {useState} from 'react';
-import {weekdayInfo} from "./Calendar";
+import {weekdayInfo} from "./Background";
+import { format } from "date-fns";
 
 
 export interface interviewInfo {
@@ -13,8 +14,7 @@ export interface interviewInfo {
 
 
 interface DayProps {
-  date: string;
-  dayOfTheWeek: string;
+  date: Date;
   dayInfo: weekdayInfo;
 }
 
@@ -22,7 +22,7 @@ const renderTime = (dayInfo:weekdayInfo)=> {
   const timeprops:timeProps[] = [];
 
 
-  for (let i = 1; i < 24; i++) {
+  for (let i = 1; i < 7; i++) {
     if(dayInfo.availableTimes!=null && dayInfo.availableTimes.includes(i)) {
       timeprops.push({
         startTime: i,
@@ -65,15 +65,16 @@ const renderTime = (dayInfo:weekdayInfo)=> {
   return timeprops;
 }
 
-const Day: React.FC<DayProps> = ({date, dayOfTheWeek,dayInfo}) => {
+const Day: React.FC<DayProps> = ({date,dayInfo}) => {
 
   const [timeprops,setTimeprops] = useState<timeProps[]>(renderTime(dayInfo));
+
 
   return (
     <div className="calendar-day" >
       <div className="calendar-day-label">
-        <h4>{dayOfTheWeek}</h4>
-        <span>{date}</span>
+        <h4>{format(date,'EEEE')}</h4>
+        <span>{format(date,'MMMM d')}</span>
       </div>
       <div className="calendar-events" >
         {timeprops.map((timeprop:timeProps)=> {

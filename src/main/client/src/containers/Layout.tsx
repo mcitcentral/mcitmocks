@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Footer, Calendar } from "components";
+import { Header, Footer } from "components";
 
 
 const Layout: React.FC<{}> = ({ children }) => {
@@ -7,7 +7,6 @@ const Layout: React.FC<{}> = ({ children }) => {
     <>
       <Header />
       <main>{children}</main>
-      <Calendar/>
       <Footer />
     </>
   );
