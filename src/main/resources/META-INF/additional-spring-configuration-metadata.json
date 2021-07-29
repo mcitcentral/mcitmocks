@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "google-client-id",
+      "type": "java.lang.String",
+      "description": "Description for google-client-id."
+    }
+  ]
+}

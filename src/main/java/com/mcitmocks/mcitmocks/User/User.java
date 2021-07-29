@@ -4,37 +4,42 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
 
-    @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+  @Id
+  @GeneratedValue(generator = "uuid2")
+  @GenericGenerator(name = "uuid2", strategy = "org.hibernate.id.UUIDGenerator")
+  private String id;
 
-    private String email;
-    private String timeZone;
+  private String email;
+  private String timeZone;
 
-    protected User() {}
+  protected User() {}
 
-    public User(String email) {
-        this.email = email;
-    }
+  public User(String id, String email) {
+    this.id = id;
+    this.email = email;
+  }
 
-    public User(String email, String timeZone) {
-        this.email = email;
-        this.timeZone = timeZone;
-    }
+  public User(String email) {
+    this.email = email;
+  }
 
-    public String getId() {
-        return id;
-    }
+  public User(String id, String email, String timeZone) {
+    this.email = email;
+    this.timeZone = timeZone;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public String getTimeZone() {
-        return timeZone;
-    }
+  public String getEmail() {
+    return email;
+  }
+
+  public String getTimeZone() {
+    return timeZone;
+  }
 }
